@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/gutamuw/leWeb/compare/v1.0.1...v1.1.0) (2025-02-04)
+
+
+### Features
+
+* teeeeeest ([617b1b0](https://github.com/gutamuw/leWeb/commit/617b1b063fa36cc6dd9f2c9a6f01456fe6c830f6))
+
 ## [1.0.1](https://github.com/gutamuw/leWeb/compare/v1.0.0...v1.0.1) (2025-02-04)
 
 
