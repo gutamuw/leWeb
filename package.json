@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
-    "standard-version": "^9.5.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.6"
   },

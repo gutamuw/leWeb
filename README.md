@@ -175,6 +175,12 @@ We use Semantic Versioning (SemVer) to version our software. SemVer follows the 
 When we release a new version, create an annotated tag in Git with the version number. Here's how we do it:
 
 ```bash
+git commit -m "chore(release): 2.0.0"
+git tag -a v2.0.0 -m "Release 2.0.0"
+git push --follow-tags
+
+or only the tag
+
 git tag -a v1.0.0 -m "Release version 1.0.0"
 git push origin v1.0.0
 ```
