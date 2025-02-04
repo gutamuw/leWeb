@@ -1,7 +1,7 @@
 # leWeb
 
 ![Project Logo](public/leWeb-logo.webp)
-![Project Logo](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
+![GitFlow](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
 ## Table of Contents
 
@@ -88,22 +88,87 @@ Merge Responsibility: The person who created the PR or the primary reviewer can 
 
 ## Commit Message Guidelines
 
-### Commit Message Structure
+### Overview
 
-We follow the **Conventional Commits** specification for commit messages. Each commit message should be structured as follows:
+Our team uses [Commitizen](https://github.com/commitizen/cz-cli) to standardize our commit messages following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. This helps us maintain a clean git history and automatically generate changelogs.
+
+### Conventional Commits Specification
+
+Conventional Commits is a specification for adding human and machine-readable meaning to commit messages. The commit message should be structured as follows:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Types
+
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **perf**: A code change that improves performance
+- **test**: Adding missing tests or correcting existing tests
+- **chore**: Changes to the build process or auxiliary tools and libraries
+
+### Scope
+
+The scope provides additional contextual information and is optional:
+
+- **auth**: authentication related changes
+- **core**: core functionality
+- **ui**: user interface components
+
+### Using Commitizen
+
+#### Installation
+
+```bash
+# Install commitizen globally
+npm install -g commitizen
+
+# Initialize commitizen in your project
+npm install --save-dev commitizen cz-conventional-changelog
+```
+
+#### Making Commits
+
+Instead of using git commit, use:
+
+```bash
+git add .
+git cz
+# or
+npx cz
+```
+
+#### Commit message examples:
+
+```
+feat(auth): implement OAuth2 login with Google
+fix(ui): resolve button alignment in navigation bar
+docs(api): update endpoint documentation
+refactor(core): simplify data processing pipeline
+```
 
 ## Versioning
 
 ### Versioning Scheme (Semantic Versioning)
 
 We use Semantic Versioning (SemVer) to version our software. SemVer follows the format:
-<span style="color:red">MAJOR</span>.<span style="color:blue">MINOR</span>.<span style="color:purple">PATCH</span>
+![Semantic Versioning Cheatsheet](https://bytearcher.com/goodies/semantic-versioning-cheatsheet/wheelbarrel-no-tilde-caret-white-bg-w1000.jpg)
 
-MAJOR: Increment when you make incompatible API changes or major changes that break backward compatibility.
+> **MAJOR.MINOR.PATCH**
 
-MINOR: Increment when you add functionality in a backward-compatible manner (e.g., new features).
+> **MAJOR:** Increment when you make incompatible API changes or major changes that break backward compatibility.
 
-PATCH: Increment when you make backward-compatible bug fixes or small improvements.
+**MINOR:** Increment when you add functionality in a backward-compatible manner (e.g., new features).
+
+**PATCH:** Increment when you make backward-compatible bug fixes or small improvements.
 
 ### Marking versions in Git
 
@@ -135,3 +200,27 @@ Example: Adding a new API endpoint, introducing a new UI component, or enhancing
 Increment when you make breaking changes that are not backward-compatible.
 
 Example: Removing or renaming an API, changing the behavior of existing features, or overhauling the architecture.
+
+Some notes on how to use scope in commit messages for CSS changes:
+
+If it's purely cosmetic:
+
+```bash
+style(ui): adjust button padding and colors
+style(nav): update navigation bar styling
+style(layout): fix responsive grid spacing
+```
+
+If it's a bug fix:
+
+```bash
+fix(styles): resolve overlapping elements in mobile view
+fix(ui): correct button alignment issues
+```
+
+If it's a new visual feature:
+
+```bash
+feat(ui): implement new card component styling
+feat(styles): add dark mode theme
+```
