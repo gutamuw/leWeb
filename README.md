@@ -1,6 +1,6 @@
 # leWeb
 
-![Project Logo](leWeb-logo.webp)
+![Project Logo](public/leWeb-logo.webp)
 ![Project Logo](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
 ## Table of Contents
