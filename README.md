@@ -1,11 +1,13 @@
 # leWeb
 
+releases eg. 0.0.1
+
 ![Project Logo](public/leWeb-logo.webp)
 ![Project Logo](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+- [Introduction](#intro)
 - [Git Workflow](#git-workflow)
   - [Git Flow](#git-flow)
   - [Branch Naming Conventions](#branch-naming-conventions)
@@ -16,12 +18,10 @@
   - [Commit Message Structure](#commit-message-structure)
   - [Examples](#examples)
 - [Code Review Guidelines](#code-review-guidelines)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Intro
 
-Detta dokument beskriver rutiner för GitFlow, PRs, commit-meddelanden för att säkerställa att vårt team får en en effektiv och ren utvecklingsprocess.
+Detta dokument beskriver våra rutiner för Git Workflow, PR's och Commit-meddelanden för att säkerställa att vårt team får en en effektiv och ren utvecklingsprocess.
 
 ## Git Workflow
 
@@ -39,20 +39,35 @@ We follow the **Git Flow** workflow to manage our branches and releases. Here's 
 
 ### Branch Naming Conventions
 
-- **Feature Branches**: `feature/feature-name`
+- **Feature Branches**: `feature-name`
 - **Bugfix Branches**: `bugfix/bug-name`
 - **Release Branches**: `release/version-number`
 - **Hotfix Branches**: `hotfix/issue-name`
 
 ## Pull Request Guidelines
 
+!IMPORTANT: Do not merge directly into develop. Instead, create a pull request (PR) to propose changes.
+
 ### Creating a Pull Request
 
 1. **Branch**: Ensure your branch is up-to-date with `develop` before creating a pull request.
+
+```bash
+   git checkout develop && git pull
+   or
    git checkout develop
-   git pull origin develop
+   git pull (origin develop)
+
    git checkout feature/your-feature-branch
    git merge develop
+```
+
+The reason you merge develop into your feature branch is to catch and resolve any potential conflicts BEFORE you create the pull request. Here's why:
+
+While you were working on your feature branch, other developers likely merged their changes into develop
+If those changes conflict with yours, it's better to resolve them locally first
+This makes the eventual merge of your PR into develop much cleaner and less likely to have conflicts
+
 2. **Title**: Use a clear and descriptive title for your pull request (e.g., feat(api): add user authentication endpoint).
 3. **Description**: Provide a detailed description of the changes, including the purpose of the pull request and any related issues.
 4. **Reviewers**: Assign at least one or two reviewer to the pull request. These should be team members familiar with the codebase.
@@ -77,5 +92,3 @@ Merge Responsibility: The person who created the PR or the primary reviewer can 
 ### Commit Message Structure
 
 We follow the **Conventional Commits** specification for commit messages. Each commit message should be structured as follows:
-
-releases eg. 0.0.1
