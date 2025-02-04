@@ -21,10 +21,23 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <header id="header"></header>
-    <div id="app"></div>
-    <h1>LeWeb</h1>
-    <footer id="footer"></footer>
+    <header id="header" class="padding-top-bot"></header>
+    <main>
+      <section class="hero-section">
+        <div class="hero-section-container wrapper">
+          <h1>Nordens fetaste Webbyrå.</h1>
+          <div class="hero-btns">
+            <a href="#">Våra kundcase</a>
+            <a href="#">Läs mer</a>
+          </div>
+        </div>
+
+        <video autoplay muted loop preload="auto">
+          <source src="https://videos.pexels.com/video-files/29955171/12855225_2560_1440_25fps.mp4" type="video/mp4">
+          Din webbläsare stödjer inte videouppspelning.
+      </section>
+    </main>
+    <footer id="footer" class="padding-m"></footer>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/footer.ts"></script>
     <script type="module" src="/src/header.ts"></script>
