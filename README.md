@@ -1,7 +1,5 @@
 # leWeb
 
-releases eg. 0.0.1
-
 ![Project Logo](public/leWeb-logo.webp)
 ![Project Logo](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
@@ -17,7 +15,8 @@ releases eg. 0.0.1
 - [Commit Message Guidelines](#commit-message-guidelines)
   - [Commit Message Structure](#commit-message-structure)
   - [Examples](#examples)
-- [Code Review Guidelines](#code-review-guidelines)
+  <!-- - [Code Review Guidelines](#code-review-guidelines) -->
+- [Versioning](#versioning)
 
 ## Intro
 
@@ -92,3 +91,47 @@ Merge Responsibility: The person who created the PR or the primary reviewer can 
 ### Commit Message Structure
 
 We follow the **Conventional Commits** specification for commit messages. Each commit message should be structured as follows:
+
+## Versioning
+
+### Versioning Scheme (Semantic Versioning)
+
+We use Semantic Versioning (SemVer) to version our software. SemVer follows the format:
+<span style="color:red">MAJOR</span>.<span style="color:blue">MINOR</span>.<span style="color:purple">PATCH</span>
+
+MAJOR: Increment when you make incompatible API changes or major changes that break backward compatibility.
+
+MINOR: Increment when you add functionality in a backward-compatible manner (e.g., new features).
+
+PATCH: Increment when you make backward-compatible bug fixes or small improvements.
+
+### Marking versions in Git
+
+When we release a new version, create an annotated tag in Git with the version number. Here's how we do it:
+
+```bash
+git tag -a v1.0.0 -m "Release version 1.0.0"
+git push origin v1.0.0
+```
+
+### When to Update Version Numbers
+
+Follow these guidelines to decide when to update the patch, minor, or major version:
+
+#### Patch Version (0.0.1 → 0.0.2):
+
+Increment when you fix bugs or make small improvements that don't add new features or break compatibility.
+
+Example: Fixing a typo, resolving a crash, or improving performance.
+
+##### Minor Version (0.0.1 → 0.1.0):
+
+Increment when you add new features or functionality that are backward-compatible.
+
+Example: Adding a new API endpoint, introducing a new UI component, or enhancing existing features.
+
+#### Major Version (0.1.0 → 1.0.0):
+
+Increment when you make breaking changes that are not backward-compatible.
+
+Example: Removing or renaming an API, changing the behavior of existing features, or overhauling the architecture.
