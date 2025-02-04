@@ -1,7 +1,7 @@
-# Project Name
+# leWeb
 
-![Project Logo](https://via.placeholder.com/150) <!-- Replace with your project logo -->
-![Project Logo](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png) <!-- Replace with your project logo -->
+![Project Logo](leWeb-logo.webp)
+![Project Logo](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
 ## Table of Contents
 
