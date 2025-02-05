@@ -11,7 +11,7 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { text: "Hem", url: "#" },
+  { text: "Hem", url: "/" },
   { text: "Om LeWeb", url: "/about.html" },
   { text: "Kundcase", url: "#" },
   { text: "Kontakta oss", url: "#" },
