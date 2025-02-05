@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.0.0](https://github.com/gutamuw/leWeb/compare/v1.1.0...v2.0.0) (2025-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **most of them lol:** breaking bad
+* **index.html:** Breaking bad
+
+### Features
+
+* **footer.ts:** skapat footer.ts, appendas till element med id:t "footer" ([0ad67c3](https://github.com/gutamuw/leWeb/commit/0ad67c37b3379b355e84c62ce450aceb30441ac4))
+* **index.html:** adderat lorem text ([1037f7e](https://github.com/gutamuw/leWeb/commit/1037f7eba03781026e47b9cfa470268500e2d12d))
+* testar versioning ([ee2ce32](https://github.com/gutamuw/leWeb/commit/ee2ce324964c440fa58f1a5e820bef3a8aa768fc))
+
+
+### Bug Fixes
+
+* **main.ts:** tog bort oanvänd kod i main.ts ([3f58c07](https://github.com/gutamuw/leWeb/commit/3f58c07e0d0d0badb950649f6e0ca31d20625cff))
+* **most of them lol:** testar taggarrrr ([cf19605](https://github.com/gutamuw/leWeb/commit/cf1960596de698a06612d603edfa5b361466efa0))
+
 ## [1.1.0](https://github.com/gutamuw/leWeb/compare/v1.0.1...v1.1.0) (2025-02-04)
 
 
