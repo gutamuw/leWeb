@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/gutamuw/leWeb/compare/v3.1.0...v3.1.1) (2025-02-05)
+
+
+### Bug Fixes
+
+* test ([cf2d7b4](https://github.com/gutamuw/leWeb/commit/cf2d7b4c1db5c3a4327ff62eb681f9107aa229c8))
+
 ## [3.1.0](https://github.com/gutamuw/leWeb/compare/v3.0.0...v3.1.0) (2025-02-05)
 
 
