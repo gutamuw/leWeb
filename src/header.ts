@@ -1,4 +1,14 @@
-const navLinks: string[] = ["Hem", "Om LeWeb", "Kundcase", "Kontakta oss"]
+type NavLink = {
+    text: string;
+    url: string;
+}
+
+const navLinks:NavLink[] = [
+    {text: "Hem", url: "#"}, 
+    {text: "Om LeWeb", url: "#"}, 
+    {text: "Kundcase", url: "#"}, 
+    {text: "Kontakta oss", url: "#"}
+]
 
 const headerContainer = document.createElement("div");
 const logo = document.createElement("div")
@@ -10,7 +20,8 @@ navLinks.forEach((link) => {
     const li = document.createElement("li")
     const navLink = document.createElement("a");
 
-    navLink.innerHTML = link;
+    navLink.innerHTML = link.text;
+    navLink.href = link.url;
     li.appendChild(navLink);
     ul.appendChild(li);
     nav.appendChild(ul);
