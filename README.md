@@ -1,7 +1,6 @@
 # leWeb
 
 ![Project Logo](public/leWeb-logo.webp)
-![GitFlow](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
 ## Table of Contents
 
@@ -36,6 +35,8 @@ We follow the **Git Flow** workflow to manage our branches and releases. Here's 
 - **Release Branches**: Release branches are created from `develop` when we are preparing for a new release. Once the release is ready, it is merged into `main` and `develop`.
 - **Hotfix Branches**: Hotfix branches are created from `main` to quickly fix production issues. Once the hotfix is complete, it is merged into `main` and `develop`.
 
+![GitFlow](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
+
 ### Branch Naming Conventions
 
 - **Feature Branches**: `feature-name`
@@ -45,7 +46,7 @@ We follow the **Git Flow** workflow to manage our branches and releases. Here's 
 
 ## Pull Request Guidelines
 
-!IMPORTANT: Do not merge directly into develop. Instead, create a pull request (PR) to propose changes.
+**IMPORTANT:** Do not merge directly into develop. Instead, create a pull request (PR) to propose changes.
 
 ### Creating a Pull Request
 
@@ -63,7 +64,7 @@ We follow the **Git Flow** workflow to manage our branches and releases. Here's 
 
 The reason you merge develop into your feature branch is to catch and resolve any potential conflicts BEFORE you create the pull request. Here's why:
 
-While you were working on your feature branch, other developers likely merged their changes into develop
+While you were working on your feature branch, other developers likely merged their changes into develop.
 If those changes conflict with yours, it's better to resolve them locally first
 This makes the eventual merge of your PR into develop much cleaner and less likely to have conflicts
 
@@ -155,58 +156,6 @@ docs(api): update endpoint documentation
 refactor(core): simplify data processing pipeline
 ```
 
-## Versioning
-
-### Versioning Scheme (Semantic Versioning)
-
-We use Semantic Versioning (SemVer) to version our software. SemVer follows the format:
-![Semantic Versioning Cheatsheet](https://bytearcher.com/goodies/semantic-versioning-cheatsheet/wheelbarrel-no-tilde-caret-white-bg-w1000.jpg)
-
-> **MAJOR.MINOR.PATCH**
-
-> **MAJOR:** Increment when you make incompatible API changes or major changes that break backward compatibility.
-
-**MINOR:** Increment when you add functionality in a backward-compatible manner (e.g., new features).
-
-**PATCH:** Increment when you make backward-compatible bug fixes or small improvements.
-
-### Marking versions in Git
-
-When we release a new version, create an annotated tag in Git with the version number. Here's how we do it:
-
-```bash
-git commit -m "chore(release): 2.0.0"
-git tag -a v2.0.0 -m "Release 2.0.0"
-git push --follow-tags
-
-or only the tag
-
-git tag -a v1.0.0 -m "Release version 1.0.0"
-git push origin v1.0.0
-```
-
-### When to Update Version Numbers
-
-Follow these guidelines to decide when to update the patch, minor, or major version:
-
-#### Patch Version (0.0.1 → 0.0.2):
-
-Increment when you fix bugs or make small improvements that don't add new features or break compatibility.
-
-Example: Fixing a typo, resolving a crash, or improving performance.
-
-##### Minor Version (0.0.1 → 0.1.0):
-
-Increment when you add new features or functionality that are backward-compatible.
-
-Example: Adding a new API endpoint, introducing a new UI component, or enhancing existing features.
-
-#### Major Version (0.1.0 → 1.0.0):
-
-Increment when you make breaking changes that are not backward-compatible.
-
-Example: Removing or renaming an API, changing the behavior of existing features, or overhauling the architecture.
-
 Some notes on how to use scope in commit messages for CSS changes:
 
 If it's purely cosmetic:
@@ -230,3 +179,90 @@ If it's a new visual feature:
 feat(ui): implement new card component styling
 feat(styles): add dark mode theme
 ```
+
+### Changelog Generation
+
+We automatically generate changelogs based on these standardized commit messages using [Release Please Actions](https://github.com/googleapis/release-please). The commit types are used to categorize changes in the changelog:
+
+- **feat** → Features
+- **fix** → Bug Fixes
+- **perf** → Performance Improvements
+- **revert** → Reverts
+- **docs**, **style**, **refactor**, **test**, **chore** → Others
+
+### Release Please
+
+By using this action, we can automatically track our conventional commits, generate/update a changelog, update versions in package.json, create git tags, and publish releases (when merged).
+
+It automatically creates/updates a PR when you push to main
+The PR contains version bump and changelog updates
+When you merge the PR, it automatically creates a GitHub release
+No local commands needed - it's all automated via GitHub Actions
+
+### Breaking Changes
+
+Breaking changes should be indicated in the commit message footer. This is done using the last step of the commitizen prompt.
+
+```
+feat(api): change authentication endpoint response format
+
+BREAKING CHANGE: authentication response now returns JWT instead of session token
+```
+
+### Why do we do this?
+
+1. **Consistency**: Standardized format across all commits
+2. **Automation**: Enables automatic changelog generation
+3. **Clarity**: Makes the project history more readable and searchable
+4. **Versioning**: Helps determine semantic version bumps based on commit types
+5. **Onboarding**: Makes it easier for new team members to follow commit conventions
+
+## Versioning
+
+### Versioning Scheme (Semantic Versioning)
+
+We use Semantic Versioning (SemVer) to version our software. SemVer follows the format: **MAJOR.MINOR.PATCH**
+![Semantic Versioning Cheatsheet](https://bytearcher.com/goodies/semantic-versioning-cheatsheet/wheelbarrel-no-tilde-caret-white-bg-w1000.jpg)
+
+**MAJOR:** Increment when you make incompatible API changes or major changes that break backward compatibility.
+**MINOR:** Increment when you add functionality in a backward-compatible manner (e.g., new features).
+**PATCH:** Increment when you make backward-compatible bug fixes or small improvements.
+
+### Marking versions in Git
+
+Följande steg är inte längre nödvändiga eftersom vi använder **Relase Please** med GitHub Actions för att skapa versionsnummer och skapa en release.
+
+When we release a new version, create an annotated tag in Git with the version number. Here's how we do it:
+
+```bash
+git commit -m "chore(release): 2.0.0"
+git tag -a v2.0.0 -m "Release 2.0.0"
+git push --follow-tags
+
+or only the tag
+
+git tag -a v1.0.0 -m "Release version 1.0.0"
+git push origin v1.0.0
+```
+
+### When to Update Version Numbers
+
+Follow these guidelines to decide when to update the patch, minor, or major version:
+
+#### **Patch Version (0.0.1 → 0.0.2):**
+
+Increment when you fix bugs or make small improvements that don't add new features or break compatibility.
+
+Example: Fixing a typo, resolving a crash, or improving performance.
+
+##### **Minor Version (0.0.1 → 0.1.0):**
+
+Increment when you add new features or functionality that are backward-compatible.
+
+Example: Adding a new API endpoint, introducing a new UI component, or enhancing existing features.
+
+#### **Major Version (0.1.0 → 1.0.0):**
+
+Increment when you make breaking changes that are not backward-compatible.
+
+Example: Removing or renaming an API, changing the behavior of existing features, or overhauling the architecture.
