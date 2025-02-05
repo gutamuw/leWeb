@@ -65,6 +65,23 @@ header ul {
 
 
 
+/* Gör sista länken till en knapp... */
+header li:last-child a {
+  padding: 1rem 2rem;
+  border: 1px solid #fff;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(to right, white 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+}
+
+header li:last-child a:hover {
+  background-position: left bottom;
+  color: #000;
+}
+
 /* Hero-section */
 
 .hero-section h1 {
