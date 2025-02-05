@@ -1,5 +1,3 @@
-# leWeb
-
 ![Project Logo](public/leWeb-logo.webp)
 
 ## Table of Contents
