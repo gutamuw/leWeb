@@ -1,4 +1,3 @@
-
 const navContainer = document.createElement("nav");
 const logoContainer = document.createElement("div");
 logoContainer.classList.add("logo-container");
@@ -12,8 +11,8 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { text: "Hem", url: "#" },
-  { text: "Om LeWeb", url: "#" },
+  { text: "Hem", url: "/" },
+  { text: "Om LeWeb", url: "/about.html" },
   { text: "Kundcase", url: "#" },
   { text: "Kontakta oss", url: "#" },
 ];
@@ -33,4 +32,3 @@ navLinks.forEach((link) => {
 logoContainer.append(logo);
 navContainer.append(logoContainer, ul);
 document.getElementById("header")?.appendChild(navContainer);
-

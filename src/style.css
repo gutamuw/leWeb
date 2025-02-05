@@ -1,9 +1,14 @@
+@view-transition {
+  navigation: auto;
+}
+
 * {
   margin: 0;
 }
 
 body {
   font-family: "Open sans";
+  background-color: #000;
 }
 
 h1,
@@ -25,6 +30,10 @@ a:visited {
 a:hover {
   text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+
+p {
+  line-height: 1.5rem;
 }
 
 /* Eget ramverk lmao */
@@ -71,12 +80,12 @@ a:hover {
 /* Header */
 
 header {
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 10;
 }
 
-header > nav {
+header>nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,7 +155,7 @@ header li:last-child a:hover {
   color: #fff;
 }
 
-.hero-section > video {
+.hero-section>video {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -163,7 +172,7 @@ header li:last-child a:hover {
   gap: 1rem;
 }
 
-.hero-btns > a {
+.hero-btns>a {
   padding: 1rem 2rem;
   border: 1px solid #fff;
   text-decoration: none;
@@ -174,7 +183,7 @@ header li:last-child a:hover {
   transition: all 0.5s ease-out;
 }
 
-.hero-btns > a:hover {
+.hero-btns>a:hover {
   background-position: left bottom;
   color: #000;
 }
@@ -220,12 +229,10 @@ header li:last-child a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    black 0%,
-    black 30%,
-    rgba(0, 0, 0, 0.274) 100%
-  );
+  background: linear-gradient(to top,
+      black 0%,
+      black 30%,
+      rgba(0, 0, 0, 0.274) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -234,18 +241,88 @@ header li:last-child a:hover {
   background-size: 110%;
 }
 
-.service-container .card:hover .card::before {
+.service-container .card:hover .card::before {}
+
+footer {
+  background-color: white;
+  background: linear-gradient(90deg, #003f5b, #2b4b7d, #5f5195, #98509d, #cc4c91, #f25375, #ff6f4e, #ff9913);
 }
 
-footer > div {
+footer>div {
   display: flex;
   justify-content: space-between;
   max-width: 1140px;
   margin: 0 auto;
+
+
 }
 
 @media screen and (max-width: 800px) {
-  footer > div {
+  footer>div {
     flex-direction: column;
+  }
+}
+
+
+/* About page */
+.about-main {
+  width: min(100% - 3rem, 960px);
+  margin-inline: auto;
+  background-color: rgb(0, 0, 0);
+  min-height: 100vh;
+  padding-block-start: 10rem;
+  color: #FFF;
+
+  h1 {
+    text-wrap: balance;
+    line-height: 1.1;
+    font-size: clamp(2.5rem, 1rem + 5vw, 4rem);
+
+  }
+}
+
+.about-main .container {
+  p {
+    font-size: 1.25rem;
+
+    &:last-child:not(.team p) {
+      margin-block-end: 10rem;
+    }
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-top: 10rem;
+    text-align: center;
+  }
+
+  .intro {}
+
+  .team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
   }
 }
