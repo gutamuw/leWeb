@@ -1,3 +1,4 @@
+
 const navContainer = document.createElement("nav");
 const logoContainer = document.createElement("div");
 logoContainer.classList.add("logo-container");
@@ -32,3 +33,4 @@ navLinks.forEach((link) => {
 logoContainer.append(logo);
 navContainer.append(logoContainer, ul);
 document.getElementById("header")?.appendChild(navContainer);
+
