@@ -93,6 +93,14 @@ Merge Responsibility: The person who created the PR or the primary reviewer can 
 
 Our team uses [Commitizen](https://github.com/commitizen/cz-cli) to standardize our commit messages following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. This helps us maintain a clean git history and automatically generate changelogs.
 
+### What makes a good commit message?
+
+- Descriptive but concise
+- Focuses on the "what" and "why" rather than the "how"
+- Separates different concerns into different commits
+- Use imperative mood in descriptions ("add" not "added")
+- References relevant issue numbers
+
 ### Conventional Commits Specification
 
 Conventional Commits is a specification for adding human and machine-readable meaning to commit messages. The commit message should be structured as follows:
@@ -123,6 +131,10 @@ The scope provides additional contextual information and is optional:
 - **auth**: authentication related changes
 - **core**: core functionality
 - **ui**: user interface components
+
+#### _Why use scopes?_
+
+Scopes help quickly identify which part of the codebase is affected by a change. This is particularly useful when generating changelogs or searching through git history.
 
 ### Using Commitizen
 
@@ -196,7 +208,6 @@ By using this action, we can automatically track our conventional commits, gener
 
 It automatically creates/updates a PR when you push to main
 The PR contains version bump and changelog updates
-When you merge the PR, it automatically creates a GitHub release
 No local commands needed - it's all automated via GitHub Actions
 
 ### Breaking Changes
@@ -208,6 +219,17 @@ feat(api): change authentication endpoint response format
 
 BREAKING CHANGE: authentication response now returns JWT instead of session token
 ```
+
+#### When to use BREAKING CHANGE?
+
+Include BREAKING CHANGE in the footer when your commit introduces changes that will break existing functionality, such as:
+
+- API changes
+- Database schema changes
+- Major dependency updates
+- Changes in expected behaviors
+
+For additional guidance, refer to the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ### Why do we do this?
 
@@ -232,37 +254,41 @@ We use Semantic Versioning (SemVer) to version our software. SemVer follows the 
 
 Följande steg är inte längre nödvändiga eftersom vi använder **Relase Please** med GitHub Actions för att skapa versionsnummer och skapa en release.
 
-When we release a new version, create an annotated tag in Git with the version number. Here's how we do it:
+> ~~When we release a new version, create an annotated tag in Git with the version number. Here's how we do it:
 
-```bash
-git commit -m "chore(release): 2.0.0"
-git tag -a v2.0.0 -m "Release 2.0.0"
-git push --follow-tags
+> ```bash
+> git commit -m "chore(release): 2.0.0"
+> git tag -a v2.0.0 -m "Release 2.0.0"
+> git push --follow-tags
+> ```
 
-or only the tag
+> or only the tag
 
-git tag -a v1.0.0 -m "Release version 1.0.0"
-git push origin v1.0.0
-```
+> git tag -a v1.0.0 -m "Release version 1.0.0"
+> git push origin v1.0.0
+>
+> ```
+>
+> ```
 
-### When to Update Version Numbers
+> ### When to Update Version Numbers
 
-Follow these guidelines to decide when to update the patch, minor, or major version:
+> Follow these guidelines to decide when to update the patch, minor, or major version:
 
-#### **Patch Version (0.0.1 → 0.0.2):**
+> #### **Patch Version (0.0.1 → 0.0.2):**
 
-Increment when you fix bugs or make small improvements that don't add new features or break compatibility.
+> Increment when you fix bugs or make small improvements that don't add new features or break compatibility.
 
-Example: Fixing a typo, resolving a crash, or improving performance.
+> Example: Fixing a typo, resolving a crash, or improving performance.
 
-##### **Minor Version (0.0.1 → 0.1.0):**
+> ##### **Minor Version (0.0.1 → 0.1.0):**
 
-Increment when you add new features or functionality that are backward-compatible.
+> Increment when you add new features or functionality that are backward-compatible.
 
-Example: Adding a new API endpoint, introducing a new UI component, or enhancing existing features.
+> Example: Adding a new API endpoint, introducing a new UI component, or enhancing existing features.
 
-#### **Major Version (0.1.0 → 1.0.0):**
+> #### **Major Version (0.1.0 → 1.0.0):**
 
-Increment when you make breaking changes that are not backward-compatible.
+> Increment when you make breaking changes that are not backward-compatible.
 
-Example: Removing or renaming an API, changing the behavior of existing features, or overhauling the architecture.
+> Example: Removing or renaming an API, changing the behavior of existing features, or overhauling the architecture.~~
