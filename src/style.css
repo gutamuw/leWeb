@@ -91,10 +91,19 @@ header>nav {
   align-items: center;
   max-width: 1140px;
   margin: 0 auto;
+
+  li:not(:last-child) {
+    margin-right: 3rem;
+  }
+
+  a {
+    text-transform: uppercase;
+  }
 }
 
 header {
   color: #fff;
+  backdrop-filter: blur(5px);
 
   .logo-container {
     width: 100px;
