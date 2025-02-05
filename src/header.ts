@@ -1,7 +1,9 @@
 const navContainer = document.createElement("nav");
-const logo = document.createElement("div");
+const logoContainer = document.createElement("div");
+logoContainer.classList.add("logo-container");
+const logo = document.createElement("img");
+logo.src = "/leWeb-logo.webp";
 // textContent is the better choice in most cases because it’s faster, safer, and prevents unintended HTML execution.
-logo.textContent = "LeWeb🖥️";
 
 type NavLink = {
   text: string;
@@ -27,5 +29,6 @@ navLinks.forEach((link) => {
   navContainer.appendChild(ul);
 });
 
-navContainer.append(logo, ul);
+logoContainer.append(logo);
+navContainer.append(logoContainer, ul);
 document.getElementById("header")?.appendChild(navContainer);
