@@ -1,60 +1,60 @@
 # leWeb
 
-![Project Logo](public/leWeb-logo.webp)
+![Projektlogga](public/leWeb-logo.webp)
 
-## Table of Contents
+## Innehållsförteckning
 
-- [Introduction](#intro)
+- [Introduktion](#intro)
 - [Git Workflow](#git-workflow)
   - [Git Flow](#git-flow)
-  - [Branch Naming Conventions](#branch-naming-conventions)
-- [Pull Request Guidelines](#pull-request-guidelines)
-  - [Creating a Pull Request](#creating-a-pull-request)
-  - [Reviewing a Pull Request](#reviewing-a-pull-request)
-- [Commit Message Guidelines](#commit-message-guidelines)
-  - [Commit Message Structure](#commit-message-structure)
-  - [Examples](#examples)
-  <!-- - [Code Review Guidelines](#code-review-guidelines) -->
-- [Versioning](#versioning)
+  - [Namngivning av grenar](#branch-naming-conventions)
+- [Riktlinjer för Pull Requests](#pull-request-guidelines)
+  - [Skapa en Pull Request](#creating-a-pull-request)
+  - [Granska en Pull Request](#reviewing-a-pull-request)
+- [Riktlinjer för Commit-meddelanden](#commit-message-guidelines)
+  - [Struktur för Commit-meddelanden](#commit-message-structure)
+  - [Exempel](#examples)
+  <!-- - [Riktlinjer för kodgranskning](#code-review-guidelines) -->
+- [Versionshantering](#versioning)
 
 ## Intro
 
-Detta dokument beskriver våra rutiner för Git Workflow, PR's och Commit-meddelanden för att säkerställa att vårt team får en en effektiv och ren utvecklingsprocess.
+Detta dokument beskriver våra rutiner för Git Workflow, Pull Requests (PR) och Commit-meddelanden för att säkerställa en effektiv och ren utvecklingsprocess för vårt team.
 
 ## Git Workflow
 
 ### Git Flow
 
-We follow the **Git Flow** workflow to manage our branches and releases. Here's a brief overview:
+Vi följer **Git Flow**-arbetsflödet för att hantera våra grenar och versioner. Här är en kort översikt:
 
-- **`main`**: The main branch contains the production-ready code.
-- **`develop`**: The develop branch is where all the latest changes are integrated.
-- **Feature Branches**: Feature branches are created from the develop branch.
-  Do not merge directly into develop. Instead, create a pull request (PR) to propose changes.
-  Once the feature is complete and the PR is approved, it will be merged into develop.
-- **Release Branches**: Release branches are created from `develop` when we are preparing for a new release. Once the release is ready, it is merged into `main` and `develop`.
-- **Hotfix Branches**: Hotfix branches are created from `main` to quickly fix production issues. Once the hotfix is complete, it is merged into `main` and `develop`.
+- **`main`**: Huvudgrenen innehåller produktionsklar kod.
+- **`develop`**: Utvecklingsgrenen är där alla senaste ändringar integreras.
+- **Funktionsgrenar**: Funktionsgrenar skapas från utvecklingsgrenen.
+  Merga inte direkt till `develop`. Skapa istället en pull request (PR) för att föreslå ändringar.
+  När funktionen är klar och PR:n är godkänd, mergas den till `develop`.
+- **Release-grenar**: Release-grenar skapas från `develop` när vi förbereder en ny version. När versionen är klar mergas den till `main` och `develop`.
+- **Hotfix-grenar**: Hotfix-grenar skapas från `main` för att snabbt åtgärda produktionsproblem. När hotfixen är klar mergas den till `main` och `develop`.
 
 ![GitFlow](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
-### Branch Naming Conventions
+### Namngivning av grenar
 
-- **Feature Branches**: `feature-name`
-- **Bugfix Branches**: `bugfix/bug-name`
-- **Release Branches**: `release/version-number`
-- **Hotfix Branches**: `hotfix/issue-name`
+- **Funktionsgrenar**: `feature-name`
+- **Bugfix-grenar**: `bugfix/bug-name`
+- **Release-grenar**: `release/version-number`
+- **Hotfix-grenar**: `hotfix/issue-name`
 
-## Pull Request Guidelines
+## Riktlinjer för Pull Requests
 
-**IMPORTANT:** Do not merge directly into develop. Instead, create a pull request (PR) to propose changes.
+**VIKTIGT:** Merga inte direkt till `develop`. Skapa istället en pull request (PR) för att föreslå ändringar.
 
-### Creating a Pull Request
+### Skapa en Pull Request
 
-1. **Branch**: Ensure your branch is up-to-date with `develop` before creating a pull request.
+1. **Gren**: Se till att din gren är uppdaterad med `develop` innan du skapar en pull request.
 
 ```bash
    git checkout develop && git pull
-   or
+   eller
    git checkout develop
    git pull (origin develop)
 
@@ -62,199 +62,199 @@ We follow the **Git Flow** workflow to manage our branches and releases. Here's 
    git merge develop
 ```
 
-The reason you merge develop into your feature branch is to catch and resolve any potential conflicts BEFORE you create the pull request. Here's why:
+Anledningen till att du mergar `develop` till din funktionsgren är för att upptäcka och lösa eventuella konflikter INNAN du skapar pull requesten. Här är varför:
 
-While you were working on your feature branch, other developers likely merged their changes into develop.
-If those changes conflict with yours, it's better to resolve them locally first
-This makes the eventual merge of your PR into develop much cleaner and less likely to have conflicts
+Medan du arbetade på din funktionsgren har andra utvecklare troligen mergat sina ändringar till `develop`.
+Om dessa ändringar konflikterar med dina, är det bättre att lösa dem lokalt först.
+Detta gör att din PR blir renare och mindre benägen att ha konflikter när den mergas till `develop`.
 
-2. **Title**: Use a clear and descriptive title for your pull request (e.g., feat(api): add user authentication endpoint).
-3. **Description**: Provide a detailed description of the changes, including the purpose of the pull request and any related issues.
-4. **Reviewers**: Assign at least one or two reviewer to the pull request. These should be team members familiar with the codebase.
-5. **Labels**: Add appropriate labels (e.g., `bug`, `enhancement`, `documentation`).
+2. **Titel**: Använd en tydlig och beskrivande titel för din pull request (t.ex., `feat(api): lägg till användarautentiseringsendpoint`).
+3. **Beskrivning**: Ge en detaljerad beskrivning av ändringarna, inklusive syftet med pull requesten och eventuella relaterade ärenden.
+4. **Granskare**: Tilldela minst en eller två granskare till pull requesten. Dessa bör vara teammedlemmar som är bekanta med kodbasen.
+5. **Etiketter**: Lägg till lämpliga etiketter (t.ex., `bug`, `enhancement`, `documentation`).
 
-### Reviewing a Pull Request
+### Granska en Pull Request
 
-1. **Code Review**: Review the code for quality, readability, and adherence to coding standards.
-2. **Testing**: Ensure that the changes have been tested and do not introduce new bugs.
-3. **Comments**: Provide constructive feedback and request changes if necessary.
-4. **Approval**: Once the pull request meets all criteria, approve it and merge it into the target branch.
+1. **Kodgranskning**: Granska koden för kvalitet, läsbarhet och efterlevnad av kodstandarder.
+2. **Testning**: Se till att ändringarna har testats och inte introducerar nya buggar.
+3. **Kommentarer**: Ge konstruktiv feedback och begär ändringar om det behövs.
+4. **Godkännande**: När pull requesten uppfyller alla kriterier, godkänn den och merga den till målgrenen.
 
-Who Resolves Pull Requests?
-Primary Reviewer: At least one designated reviewer must approve the PR.
+Vem löser Pull Requests?
+Primär granskare: Minst en utsedd granskare måste godkänna PR:n.
 
-Team Collaboration: If the PR affects multiple areas of the codebase, it’s a good idea to involve additional team members for review.
+Teamets samarbete: Om PR:n påverkar flera delar av kodbasen, är det en bra idé att involvera ytterligare teammedlemmar för granskning.
 
-Merge Responsibility: The person who created the PR or the primary reviewer can merge the PR after approval.
+Merge-ansvar: Personen som skapade PR:n eller den primära granskaren kan merga PR:n efter godkännande.
 
-## Commit Message Guidelines
+## Riktlinjer för Commit-meddelanden
 
-### Overview
+### Översikt
 
-Our team uses [Commitizen](https://github.com/commitizen/cz-cli) to standardize our commit messages following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. This helps us maintain a clean git history and automatically generate changelogs.
+Vårt team använder [Commitizen](https://github.com/commitizen/cz-cli) för att standardisera våra commit-meddelanden enligt [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)-specifikationen. Detta hjälper oss att upprätthålla en ren git-historik och automatiskt generera ändringsloggar.
 
-### What makes a good commit message?
+### Vad gör ett bra commit-meddelande?
 
-- Descriptive but concise
-- Focuses on the "what" and "why" rather than the "how"
-- Separates different concerns into different commits
-- Use imperative mood in descriptions ("add" not "added")
-- References relevant issue numbers
+- Beskrivande men koncist
+- Fokuserar på "vad" och "varför" snarare än "hur"
+- Separerar olika problem i olika commits
+- Använd imperativ form i beskrivningar ("lägg till" inte "lade till")
+- Refererar till relevanta ärendenummer
 
-### Conventional Commits Specification
+### Conventional Commits-specifikationen
 
-Conventional Commits is a specification for adding human and machine-readable meaning to commit messages. The commit message should be structured as follows:
+Conventional Commits är en specifikation för att lägga till mänsklig och maskinläsbar betydelse till commit-meddelanden. Commit-meddelandet bör vara strukturerat enligt följande:
 
 ```
-<type>[optional scope]: <description>
+<typ>[valfritt omfång]: <beskrivning>
 
-[optional body]
+[valfri brödtext]
 
-[optional footer(s)]
+[valfri sidfot]
 ```
 
-### Types
+### Typer
 
-- **feat**: A new feature
-- **fix**: A bug fix
-- **docs**: Documentation only changes
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc)
-- **refactor**: A code change that neither fixes a bug nor adds a feature
-- **perf**: A code change that improves performance
-- **test**: Adding missing tests or correcting existing tests
-- **chore**: Changes to the build process or auxiliary tools and libraries
+- **feat**: En ny funktion
+- **fix**: En buggfix
+- **docs**: Endast dokumentationsändringar
+- **style**: Ändringar som inte påverkar kodens betydelse (blanksteg, formatering, etc.)
+- **refactor**: En kodändring som varken fixar en bugg eller lägger till en funktion
+- **perf**: En kodändring som förbättrar prestandan
+- **test**: Lägga till saknade tester eller korrigera befintliga tester
+- **chore**: Ändringar i byggprocessen eller hjälpverktyg och bibliotek
 
-### Scope
+### Omfång
 
-The scope provides additional contextual information and is optional:
+Omfånget ger ytterligare kontextuell information och är valfritt:
 
-- **auth**: authentication related changes
-- **core**: core functionality
-- **ui**: user interface components
+- **auth**: Autentiseringsrelaterade ändringar
+- **core**: Kärnfunktionalitet
+- **ui**: Användargränssnittskomponenter
 
-#### _Why use scopes?_
+#### _Varför använda omfång?_
 
-Scopes help quickly identify which part of the codebase is affected by a change. This is particularly useful when generating changelogs or searching through git history.
+Omfång hjälper till att snabbt identifiera vilken del av kodbasen som påverkas av en ändring. Detta är särskilt användbart när man genererar ändringsloggar eller söker igenom git-historiken.
 
-### Using Commitizen
+### Använda Commitizen
 
 #### Installation
 
 ```bash
-# Install commitizen globally
+# Installera commitizen globalt
 npm install -g commitizen
 
-# Initialize commitizen in your project
+# Initiera commitizen i ditt projekt
 npm install --save-dev commitizen cz-conventional-changelog
 ```
 
-#### Making Commits
+#### Göra Commits
 
-Instead of using git commit, use:
+Använd istället för `git commit`:
 
 ```bash
 git add .
 git cz
-# or
+# eller
 npx cz
 ```
 
-#### Commit message examples:
+#### Exempel på commit-meddelanden:
 
 ```
-feat(auth): implement OAuth2 login with Google
-fix(ui): resolve button alignment in navigation bar
-docs(api): update endpoint documentation
-refactor(core): simplify data processing pipeline
+feat(auth): implementera OAuth2-inloggning med Google
+fix(ui): åtgärda knappjustering i navigeringsfältet
+docs(api): uppdatera endpoint-dokumentation
+refactor(core): förenkla databehandlingspipeline
 ```
 
-Some notes on how to use scope in commit messages for CSS changes:
+Några anteckningar om hur man använder omfång i commit-meddelanden för CSS-ändringar:
 
-If it's purely cosmetic:
+Om det är rent kosmetiskt:
 
 ```bash
-style(ui): adjust button padding and colors
-style(nav): update navigation bar styling
-style(layout): fix responsive grid spacing
+style(ui): justera knapputfyllnad och färger
+style(nav): uppdatera stil för navigeringsfältet
+style(layout): fixa responsivt rutnätsavstånd
 ```
 
-If it's a bug fix:
+Om det är en buggfix:
 
 ```bash
-fix(styles): resolve overlapping elements in mobile view
-fix(ui): correct button alignment issues
+fix(styles): åtgärda överlappande element i mobilvy
+fix(ui): korrigera knappjusteringsproblem
 ```
 
-If it's a new visual feature:
+Om det är en ny visuell funktion:
 
 ```bash
-feat(ui): implement new card component styling
-feat(styles): add dark mode theme
+feat(ui): implementera ny stil för kortkomponent
+feat(styles): lägg till mörkt läge
 ```
 
-### Changelog Generation
+### Generering av ändringsloggar
 
-We automatically generate changelogs based on these standardized commit messages using [Release Please Actions](https://github.com/googleapis/release-please). The commit types are used to categorize changes in the changelog:
+Vi genererar automatiskt ändringsloggar baserat på dessa standardiserade commit-meddelanden med hjälp av [Release Please Actions](https://github.com/googleapis/release-please). Commit-typerna används för att kategorisera ändringar i ändringsloggen:
 
-- **feat** → Features
-- **fix** → Bug Fixes
-- **perf** → Performance Improvements
-- **revert** → Reverts
-- **docs**, **style**, **refactor**, **test**, **chore** → Others
+- **feat** → Funktioner
+- **fix** → Buggfixar
+- **perf** → Prestandaförbättringar
+- **revert** → Återställningar
+- **docs**, **style**, **refactor**, **test**, **chore** → Övrigt
 
 ### Release Please
 
-By using this action, we can automatically track our conventional commits, generate/update a changelog, update versions in package.json, create git tags, and publish releases (when merged).
+Genom att använda denna åtgärd kan vi automatiskt spåra våra conventional commits, generera/uppdatera en ändringslogg, uppdatera versioner i package.json, skapa git-taggar och publicera versioner (när de mergas).
 
-It automatically creates/updates a PR when you push to main
-The PR contains version bump and changelog updates
-No local commands needed - it's all automated via GitHub Actions
+Den skapar/uppdaterar automatiskt en PR när du pushar till `main`.
+PR:n innehåller versionsuppdateringar och ändringsloggsuppdateringar.
+Inga lokala kommandon behövs – allt är automatiserat via GitHub Actions.
 
-### Breaking Changes
+### Brytande ändringar
 
-Breaking changes should be indicated in the commit message footer. This is done using the last step of the commitizen prompt.
+Brytande ändringar ska anges i commit-meddelandets sidfot. Detta görs med hjälp av det sista steget i Commitizen-prompten.
 
 ```
-feat(api): change authentication endpoint response format
+feat(api): ändra autentiseringsendpointens svarsformat
 
-BREAKING CHANGE: authentication response now returns JWT instead of session token
+BREAKING CHANGE: autentiseringssvaret returnerar nu JWT istället för sessionstoken
 ```
 
-#### When to use BREAKING CHANGE?
+#### När ska man använda BREAKING CHANGE?
 
-Include BREAKING CHANGE in the footer when your commit introduces changes that will break existing functionality, such as:
+Inkludera BREAKING CHANGE i sidfoten när din commit introducerar ändringar som bryter befintlig funktionalitet, såsom:
 
-- API changes
-- Database schema changes
-- Major dependency updates
-- Changes in expected behaviors
+- API-ändringar
+- Ändringar i databasscheman
+- Stora uppdateringar av beroenden
+- Ändringar i förväntade beteenden
 
-For additional guidance, refer to the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/).
+För ytterligare vägledning, se [Conventional Commits-specifikationen](https://www.conventionalcommits.org/en/v1.0.0/).
 
-### Why do we do this?
+### Varför gör vi så här?
 
-1. **Consistency**: Standardized format across all commits
-2. **Automation**: Enables automatic changelog generation
-3. **Clarity**: Makes the project history more readable and searchable
-4. **Versioning**: Helps determine semantic version bumps based on commit types
-5. **Onboarding**: Makes it easier for new team members to follow commit conventions
+1. **Konsistens**: Standardiserat format för alla commits
+2. **Automatisering**: Möjliggör automatisk generering av ändringsloggar
+3. **Tydlighet**: Gör projektets historik mer läsbar och sökbar
+4. **Versionshantering**: Hjälper till att bestämma semantiska versionsuppdateringar baserat på commit-typer
+5. **Onboarding**: Gör det enklare för nya teammedlemmar att följa commit-konventioner
 
-## Versioning
+## Versionshantering
 
-### Versioning Scheme (Semantic Versioning)
+### Versionsschema (Semantisk versionshantering)
 
-We use Semantic Versioning (SemVer) to version our software. SemVer follows the format: **MAJOR.MINOR.PATCH**
+Vi använder Semantic Versioning (SemVer) för att versionshantera vår mjukvara. SemVer följer formatet: **HUVUD.MINDRE.PATCH**
 ![Semantic Versioning Cheatsheet](https://bytearcher.com/goodies/semantic-versioning-cheatsheet/wheelbarrel-no-tilde-caret-white-bg-w1000.jpg)
 
-**MAJOR:** Increment when you make incompatible API changes or major changes that break backward compatibility.
-**MINOR:** Increment when you add functionality in a backward-compatible manner (e.g., new features).
-**PATCH:** Increment when you make backward-compatible bug fixes or small improvements.
+**HUVUD:** Öka när du gör inkompatibla API-ändringar eller större ändringar som bryter bakåtkompatibilitet.
+**MINDRE:** Öka när du lägger till funktionalitet på ett bakåtkompatibelt sätt (t.ex., nya funktioner).
+**PATCH:** Öka när du gör bakåtkompatibla buggfixar eller små förbättringar.
 
-### Marking versions in Git
+### Markera versioner i Git
 
-Följande steg är inte längre nödvändiga eftersom vi använder **Relase Please** med GitHub Actions för att skapa versionsnummer och skapa en release.
+Följande steg är inte längre nödvändiga eftersom vi använder **Release Please** med GitHub Actions för att skapa versionsnummer och skapa en release.
 
-> ~~When we release a new version, create an annotated tag in Git with the version number. Here's how we do it:
+> ~~När vi släpper en ny version, skapa en annoterad tagg i Git med versionsnumret. Så här gör vi det:
 
 > ```bash
 > git commit -m "chore(release): 2.0.0"
@@ -262,7 +262,7 @@ Följande steg är inte längre nödvändiga eftersom vi använder **Relase Plea
 > git push --follow-tags
 > ```
 
-> or only the tag
+> eller bara taggen
 
 > git tag -a v1.0.0 -m "Release version 1.0.0"
 > git push origin v1.0.0
@@ -271,24 +271,24 @@ Följande steg är inte längre nödvändiga eftersom vi använder **Relase Plea
 >
 > ```
 
-> ### When to Update Version Numbers
+> ### När ska versionsnummer uppdateras?
 
-> Follow these guidelines to decide when to update the patch, minor, or major version:
+> Följ dessa riktlinjer för att bestämma när du ska uppdatera patch-, minor- eller major-versionen:
 
-> #### **Patch Version (0.0.1 → 0.0.2):**
+> #### **Patch-version (0.0.1 → 0.0.2):**
 
-> Increment when you fix bugs or make small improvements that don't add new features or break compatibility.
+> Öka när du fixar buggar eller gör små förbättringar som inte lägger till nya funktioner eller bryter kompatibilitet.
 
-> Example: Fixing a typo, resolving a crash, or improving performance.
+> Exempel: Fixa en stavfel, åtgärda en krasch eller förbättra prestandan.
 
-> ##### **Minor Version (0.0.1 → 0.1.0):**
+> ##### **Minor-version (0.0.1 → 0.1.0):**
 
-> Increment when you add new features or functionality that are backward-compatible.
+> Öka när du lägger till nya funktioner eller funktionalitet som är bakåtkompatibla.
 
-> Example: Adding a new API endpoint, introducing a new UI component, or enhancing existing features.
+> Exempel: Lägga till en ny API-endpoint, introducera en ny UI-komponent eller förbättra befintliga funktioner.
 
-> #### **Major Version (0.1.0 → 1.0.0):**
+> #### **Major-version (0.1.0 → 1.0.0):**
 
-> Increment when you make breaking changes that are not backward-compatible.
+> Öka när du gör brytande ändringar som inte är bakåtkompatibla.
 
-> Example: Removing or renaming an API, changing the behavior of existing features, or overhauling the architecture.~~
+> Exempel: Ta bort eller byta namn på en API, ändra beteendet hos befintliga funktioner eller göra en större arkitekturförändring.~~
