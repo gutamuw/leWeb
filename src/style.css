@@ -60,6 +60,7 @@ p {
 }
 
 .button {
+  display: inline-block;
   padding: 1rem 2rem;
   border: 1px solid #fff;
   text-decoration: none;
@@ -75,12 +76,12 @@ p {
 .button:hover {
   background-position: left bottom;
   color: #000;
+  text-decoration: none;
 }
 
 /* Header */
 
-
-header>nav {
+header > nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,7 +104,6 @@ header {
   z-index: 10;
   backdrop-filter: blur(5px);
 
-
   .logo-container {
     width: 100px;
     height: 40px;
@@ -120,14 +120,12 @@ header {
     cursor: pointer;
     background: none;
     border: none;
-    transition: transform .2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 
     &:hover {
       transform: scale(1.1);
     }
   }
-
-
 }
 
 header ul {
@@ -177,7 +175,7 @@ header li:last-child a:hover {
   color: #fff;
 }
 
-.hero-section>video {
+.hero-section > video {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -194,18 +192,7 @@ header li:last-child a:hover {
   gap: 1rem;
 }
 
-.hero-btns>a {
-  padding: 1rem 2rem;
-  border: 1px solid #fff;
-  text-decoration: none;
-  color: #fff;
-  background: linear-gradient(to right, white 50%, black 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all 0.5s ease-out;
-}
-
-.hero-btns>a:hover {
+.hero-btns > a:hover {
   background-position: left bottom;
   color: #000;
 }
@@ -262,10 +249,12 @@ header li:last-child a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      black 0%,
-      black 30%,
-      rgba(0, 0, 0, 0.274) 100%);
+  background: linear-gradient(
+    to top,
+    black 0%,
+    black 30%,
+    rgba(0, 0, 0, 0.274) 100%
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -274,28 +263,75 @@ header li:last-child a:hover {
   background-size: 110%;
 }
 
-.service-container .card:hover .card::before {}
+.service-container .card:hover .card::before {
+}
+
+/* cases-section */
+
+.cases-section {
+  h3 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+
+  .case {
+    display: flex;
+    background: transparent;
+    border: 1px solid #ffffff80;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 40px;
+    }
+
+    img {
+      max-height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .case-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
 
 footer {
   background-color: white;
-  background: linear-gradient(90deg, #003f5b, #2b4b7d, #5f5195, #98509d, #cc4c91, #f25375, #ff6f4e, #ff9913);
+  background: linear-gradient(
+    90deg,
+    #003f5b,
+    #2b4b7d,
+    #5f5195,
+    #98509d,
+    #cc4c91,
+    #f25375,
+    #ff6f4e,
+    #ff9913
+  );
 }
 
-footer>div {
+footer > div {
   display: flex;
   justify-content: space-between;
   max-width: 1140px;
   margin: 0 auto;
-
-
 }
 
 @media screen and (max-width: 800px) {
-  footer>div {
+  footer > div {
     flex-direction: column;
   }
 }
-
 
 /* About page */
 .about-main {
@@ -304,13 +340,12 @@ footer>div {
   background-color: rgb(0, 0, 0);
   min-height: 100vh;
   padding-block-start: 10rem;
-  color: #FFF;
+  color: #fff;
 
   h1 {
     text-wrap: balance;
     line-height: 1.1;
     font-size: clamp(2.5rem, 1rem + 5vw, 4rem);
-
   }
 }
 
@@ -329,7 +364,8 @@ footer>div {
     text-align: center;
   }
 
-  .intro {}
+  .intro {
+  }
 
   .team {
     display: grid;
@@ -358,4 +394,13 @@ footer>div {
       }
     }
   }
+}
+
+/* SLICK JS */
+
+.slick-dots li.slick-active button::before {
+  color: white !important;
+}
+.slick-dots li button::before {
+  color: rgb(182, 182, 182) !important;
 }
