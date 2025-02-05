@@ -184,6 +184,17 @@ header li:last-child a:hover {
 .service-section h2 {
   font-size: 60px;
   margin-bottom: 2rem;
+  background-image: linear-gradient(
+    102.2deg,
+    rgb(109, 118, 150) 7.1%,
+    rgb(89, 72, 79) 14.7%,
+    rgb(69, 92, 79) 28%,
+    rgb(204, 85, 67) 43.4%,
+    rgb(237, 181, 121) 60.2%,
+    rgb(219, 230, 175) 76.8%
+  );
+  background-clip: text;
+  color: transparent;
 }
 
 .service-container {
