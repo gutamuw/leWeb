@@ -25,3 +25,4 @@ jobs:
           # release-type: node
           package-name: leweb
           bootstrap-sha: ${{ github.sha }}
+          force-release-as: "0.0.0"
