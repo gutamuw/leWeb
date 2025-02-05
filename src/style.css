@@ -24,7 +24,7 @@ a:visited {
 
 a:hover {
   text-decoration: underline;
-  text-decoration-thickness: 150px;
+  text-decoration-thickness: 2px;
 }
 
 /* Eget ramverk lmao */
@@ -50,6 +50,24 @@ a:hover {
   margin: 0 auto;
 }
 
+.button {
+  padding: 1rem 2rem;
+  border: 1px solid #fff;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(to right, white 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+  z-index: 1;
+  text-align: center;
+}
+
+.button:hover {
+  background-position: left bottom;
+  color: #000;
+}
+
 /* Header */
 
 header {
@@ -58,7 +76,7 @@ header {
   z-index: 10;
 }
 
-header>nav {
+header > nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,8 +104,6 @@ header ul {
   gap: 1rem;
   list-style: none;
 }
-
-
 
 /* Gör sista länken till en knapp... */
 header li:last-child a {
@@ -130,7 +146,7 @@ header li:last-child a:hover {
   color: #fff;
 }
 
-.hero-section>video {
+.hero-section > video {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -147,7 +163,7 @@ header li:last-child a:hover {
   gap: 1rem;
 }
 
-.hero-btns>a {
+.hero-btns > a {
   padding: 1rem 2rem;
   border: 1px solid #fff;
   text-decoration: none;
@@ -158,12 +174,70 @@ header li:last-child a:hover {
   transition: all 0.5s ease-out;
 }
 
-.hero-btns>a:hover {
+.hero-btns > a:hover {
   background-position: left bottom;
   color: #000;
 }
 
-footer>div {
+/* service-section */
+
+.service-section h2 {
+  font-size: 60px;
+  margin-bottom: 2rem;
+}
+
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.service-container a {
+  text-decoration: none;
+}
+
+.service-container .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 300px;
+  width: 300px;
+  padding: 1rem;
+  border: 1px solid #53535380;
+  box-shadow: 0 0 10px #00000020;
+  background-image: url("https://images.pexels.com/photos/16245254/pexels-photo-16245254/free-photo-of-chatgpt-a-chatbot-for-your-website.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  overflow: hidden;
+  transition: background-size 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.service-container .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    black 0%,
+    black 30%,
+    rgba(0, 0, 0, 0.274) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-container .card:hover {
+  background-size: 110%;
+}
+
+.service-container .card:hover .card::before {
+}
+
+footer > div {
   display: flex;
   justify-content: space-between;
   max-width: 1140px;
@@ -171,7 +245,7 @@ footer>div {
 }
 
 @media screen and (max-width: 800px) {
-  footer>div {
+  footer > div {
     flex-direction: column;
   }
 }
