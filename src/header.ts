@@ -1,20 +1,20 @@
-const navLinks: string[] = ["Hem", "Om LeWeb", "Kundcase", "Kontakta oss"]
+const navLinks: string[] = ["Hem", "Om LeWeb", "Kundcase", "Kontakta oss"];
 
-const headerContainer = document.createElement("div");
-const logo = document.createElement("div")
-logo.innerHTML = "LeWeb🖥️"
-const nav = document.createElement("nav")
+const navContainer = document.createElement("nav");
+const logo = document.createElement("div");
+// textContent is the better choice in most cases because it’s faster, safer, and prevents unintended HTML execution.
+logo.textContent = "LeWeb🖥️";
+
 const ul = document.createElement("ul");
 
 navLinks.forEach((link) => {
-    const li = document.createElement("li")
-    const navLink = document.createElement("a");
+  const li = document.createElement("li");
+  const navLink = document.createElement("a");
 
-    navLink.innerHTML = link;
-    li.appendChild(navLink);
-    ul.appendChild(li);
-    nav.appendChild(ul);
-})
+  navLink.textContent = link;
+  li.appendChild(navLink);
+  ul.appendChild(li);
+});
 
-headerContainer.append(logo, nav);
-document.getElementById("header")?.appendChild(headerContainer)
+navContainer.append(logo, ul);
+document.getElementById("header")?.appendChild(navContainer);
