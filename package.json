@@ -17,5 +17,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "js-confetti": "^0.12.0"
   }
 }
