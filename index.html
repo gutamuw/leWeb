@@ -13,10 +13,13 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
 
     <title>Ludde + Eddie</title>
@@ -27,9 +30,10 @@
       <section class="hero-section">
         <div class="hero-section-container wrapper">
           <h1>Nordens fetaste Webbyrå.</h1>
+          <h2>I am a bug 🐞</h2>
           <div class="hero-btns">
-            <a href="#">Våra kundcase</a>
-            <a href="#">Läs mer</a>
+            <a href="#" class="button">Våra kundcase</a>
+            <a href="#" class="button">Läs mer</a>
           </div>
         </div>
         <video autoplay muted loop preload="auto">
@@ -55,11 +59,63 @@
           </div>
         </div>
       </section>
+
+
+      <section class="cases-section padding-top-bot">
+        <h3>Våra fetaste kunder</h3>
+        <div class="cases-container wrapper">
+          <div>
+            <div class="case">
+              <div class="case-left">
+                <h3>Amazon.se</h3>
+                <a href="" class="button">Se webbplats</a>
+              </div>
+              <img
+                src="https://sketchelements.com/wp-content/uploads/2020/03/amazon-app-redesign.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div>
+            <div class="case">
+              <div class="case-left">
+                <h3>Amazon.se</h3>
+                <a href="" class="button">Se webbplats</a>
+              </div>
+              <img
+                src="https://sketchelements.com/wp-content/uploads/2020/03/amazon-app-redesign.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div>
+            <div class="case">
+              <div class="case-left">
+                <h3>Amazon.se</h3>
+                <a href="" class="button">Se webbplats</a>
+              </div>
+
+              <img
+                src="https://sketchelements.com/wp-content/uploads/2020/03/amazon-app-redesign.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
     <footer id="footer" class="padding-m"></footer>
 
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/footer.ts"></script>
     <script type="module" src="/src/header.ts"></script>
+    <script type="module" src="src/slick.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
   </body>
 </html>

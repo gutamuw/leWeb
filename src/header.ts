@@ -1,10 +1,15 @@
+import JSConfetti from "js-confetti";
+const jsConfetti = new JSConfetti();
 
 const navContainer = document.createElement("nav");
 const logoContainer = document.createElement("div");
 logoContainer.classList.add("logo-container");
 const logo = document.createElement("img");
 logo.src = "/leWeb-logo.webp";
-// textContent is the better choice in most cases because it’s faster, safer, and prevents unintended HTML execution.
+const confettiBtn = document.createElement("button");
+confettiBtn.classList.add("confetti-btn");
+confettiBtn.textContent = "🎉";
+confettiBtn.addEventListener("click", () => jsConfetti.addConfetti());
 
 type NavLink = {
   text: string;
@@ -12,8 +17,8 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { text: "Hem", url: "#" },
-  { text: "Om LeWeb", url: "#" },
+  { text: "Hem", url: "/" },
+  { text: "Om LeWeb", url: "/about.html" },
   { text: "Kundcase", url: "#" },
   { text: "Kontakta oss", url: "#" },
 ];
@@ -31,6 +36,5 @@ navLinks.forEach((link) => {
 });
 
 logoContainer.append(logo);
-navContainer.append(logoContainer, ul);
+navContainer.append(logoContainer, confettiBtn, ul);
 document.getElementById("header")?.appendChild(navContainer);
-
