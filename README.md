@@ -29,28 +29,28 @@ Vi följer **Git Flow**-arbetsflödet för att hantera våra grenar och versione
 
 - **`main`**: Huvudgrenen innehåller produktionsklar kod.
 - **`develop`**: Utvecklingsgrenen är där alla senaste ändringar integreras.
-- **Funktionsgrenar**: Funktionsgrenar skapas från utvecklingsgrenen.
+- **feature-branches**: Skapas från utvecklingsgrenen.
   Merga inte direkt till `develop`. Skapa istället en pull request (PR) för att föreslå ändringar.
   När funktionen är klar och PR:n är godkänd, mergas den till `develop`.
-- **Release-grenar**: Release-grenar skapas från `develop` när vi förbereder en ny version. När versionen är klar mergas den till `main` och `develop`.
-- **Hotfix-grenar**: Hotfix-grenar skapas från `main` för att snabbt åtgärda produktionsproblem. När hotfixen är klar mergas den till `main` och `develop`.
+- **release-grenar**: Release-grenar skapas från `develop` när vi förbereder en ny version. När versionen är klar mergas den till `main` och `develop`.
+- **hotfix-grenar**: Hotfix-grenar skapas från `main` för att snabbt åtgärda produktionsproblem. När hotfixen är klar mergas den till `main` och `develop`.
 
 ![GitFlow](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3-0EDzE63S_UZx2KbIz_dg.png)
 
-### Namngivning av grenar
+### Branch Naming Conventions
 
-- **Funktionsgrenar**: `feature-name`
+- **Feature-grenar**: `feature-name`
 - **Bugfix-grenar**: `bugfix/bug-name`
 - **Release-grenar**: `release/version-number`
 - **Hotfix-grenar**: `hotfix/issue-name`
 
-## Riktlinjer för Pull Requests
+## Pull Rquest Guidelines
 
 **VIKTIGT:** Merga inte direkt till `develop`. Skapa istället en pull request (PR) för att föreslå ändringar.
 
-### Skapa en Pull Request
+### Creating a Pull Request
 
-1. **Gren**: Se till att din gren är uppdaterad med `develop` innan du skapar en pull request.
+1. **Branch**: Se till att din gren är uppdaterad med `develop` innan du skapar en pull request.
 
 ```bash
    git checkout develop && git pull
@@ -62,7 +62,7 @@ Vi följer **Git Flow**-arbetsflödet för att hantera våra grenar och versione
    git merge develop
 ```
 
-Anledningen till att du mergar `develop` till din funktionsgren är för att upptäcka och lösa eventuella konflikter INNAN du skapar pull requesten. Här är varför:
+Anledningen till att du mergar `develop` till din feature-gren är för att upptäcka och lösa eventuella konflikter INNAN du skapar pull requesten.
 
 Medan du arbetade på din funktionsgren har andra utvecklare troligen mergat sina ändringar till `develop`.
 Om dessa ändringar konflikterar med dina, är det bättre att lösa dem lokalt först.
@@ -80,14 +80,14 @@ Detta gör att din PR blir renare och mindre benägen att ha konflikter när den
 3. **Kommentarer**: Ge konstruktiv feedback och begär ändringar om det behövs.
 4. **Godkännande**: När pull requesten uppfyller alla kriterier, godkänn den och merga den till målgrenen.
 
-Vem löser Pull Requests?
+_Vem löser Pull Requests?_
 Primär granskare: Minst en utsedd granskare måste godkänna PR:n.
 
 Teamets samarbete: Om PR:n påverkar flera delar av kodbasen, är det en bra idé att involvera ytterligare teammedlemmar för granskning.
 
-Merge-ansvar: Personen som skapade PR:n eller den primära granskaren kan merga PR:n efter godkännande.
+Merge-ansvar: Den primära granskaren kan merga PR:n efter godkännande.
 
-## Riktlinjer för Commit-meddelanden
+## Commit Message Guidelines
 
 ### Översikt
 
@@ -98,19 +98,19 @@ Vårt team använder [Commitizen](https://github.com/commitizen/cz-cli) för att
 - Beskrivande men koncist
 - Fokuserar på "vad" och "varför" snarare än "hur"
 - Separerar olika problem i olika commits
-- Använd imperativ form i beskrivningar ("lägg till" inte "lade till")
-- Refererar till relevanta ärendenummer
+- Använd imperativ form i beskrivningar ("add" inte "added")
+- Refererar till relevanta issue-nummer
 
 ### Conventional Commits-specifikationen
 
 Conventional Commits är en specifikation för att lägga till mänsklig och maskinläsbar betydelse till commit-meddelanden. Commit-meddelandet bör vara strukturerat enligt följande:
 
 ```
-<typ>[valfritt omfång]: <beskrivning>
+<typ>[valfritt omfång(scope)]: <beskrivning>
 
 [valfri brödtext]
 
-[valfri sidfot]
+[valfri sidfot(footer)]
 ```
 
 ### Typer
@@ -124,17 +124,17 @@ Conventional Commits är en specifikation för att lägga till mänsklig och mas
 - **test**: Lägga till saknade tester eller korrigera befintliga tester
 - **chore**: Ändringar i byggprocessen eller hjälpverktyg och bibliotek
 
-### Omfång
+### Scope
 
-Omfånget ger ytterligare kontextuell information och är valfritt:
+Scope ger ytterligare kontextuell information och är valfritt:
 
 - **auth**: Autentiseringsrelaterade ändringar
 - **core**: Kärnfunktionalitet
 - **ui**: Användargränssnittskomponenter
 
-#### _Varför använda omfång?_
+#### _Varför använda Scope?_
 
-Omfång hjälper till att snabbt identifiera vilken del av kodbasen som påverkas av en ändring. Detta är särskilt användbart när man genererar ändringsloggar eller söker igenom git-historiken.
+Scope hjälper till att snabbt identifiera vilken del av kodbasen som påverkas av en ändring. Detta är särskilt användbart när man genererar ändringsloggar eller söker igenom git-historiken.
 
 ### Använda Commitizen
 
@@ -168,33 +168,33 @@ docs(api): uppdatera endpoint-dokumentation
 refactor(core): förenkla databehandlingspipeline
 ```
 
-Några anteckningar om hur man använder omfång i commit-meddelanden för CSS-ändringar:
+Några anteckningar om hur man använder scope i commit-meddelanden för CSS-ändringar:
 
 Om det är rent kosmetiskt:
 
 ```bash
-style(ui): justera knapputfyllnad och färger
-style(nav): uppdatera stil för navigeringsfältet
-style(layout): fixa responsivt rutnätsavstånd
+style(ui): adjust button padding and colors
+style(nav): update navigation bar styling
+style(layout): fix responsive grid spacing
 ```
 
 Om det är en buggfix:
 
 ```bash
-fix(styles): åtgärda överlappande element i mobilvy
-fix(ui): korrigera knappjusteringsproblem
+fix(styles): resolve overlapping elements in mobile view
+fix(ui): correct button alignment issues
 ```
 
 Om det är en ny visuell funktion:
 
 ```bash
-feat(ui): implementera ny stil för kortkomponent
-feat(styles): lägg till mörkt läge
+feat(ui): implement new card component styling
+feat(styles): add dark mode theme
 ```
 
-### Generering av ändringsloggar
+### Changelog Generation
 
-Vi genererar automatiskt ändringsloggar baserat på dessa standardiserade commit-meddelanden med hjälp av [Release Please Actions](https://github.com/googleapis/release-please). Commit-typerna används för att kategorisera ändringar i ändringsloggen:
+Vi genererar automatiskt changelogs baserat på dessa standardiserade commit-meddelanden med hjälp av [Release Please Actions](https://github.com/googleapis/release-please). Commit-typerna används för att kategorisera ändringar i ändringsloggen:
 
 - **feat** → Funktioner
 - **fix** → Buggfixar
@@ -210,9 +210,9 @@ Den skapar/uppdaterar automatiskt en PR när du pushar till `main`.
 PR:n innehåller versionsuppdateringar och ändringsloggsuppdateringar.
 Inga lokala kommandon behövs – allt är automatiserat via GitHub Actions.
 
-### Brytande ändringar
+### Breaking Changes
 
-Brytande ändringar ska anges i commit-meddelandets sidfot. Detta görs med hjälp av det sista steget i Commitizen-prompten.
+Breaking changes ska anges i commit-meddelandets sidfot. Detta görs med hjälp av det sista steget i Commitizen-prompten.
 
 ```
 feat(api): ändra autentiseringsendpointens svarsformat
@@ -243,16 +243,16 @@ För ytterligare vägledning, se [Conventional Commits-specifikationen](https://
 
 ### Versionsschema (Semantisk versionshantering)
 
-Vi använder Semantic Versioning (SemVer) för att versionshantera vår mjukvara. SemVer följer formatet: **HUVUD.MINDRE.PATCH**
+Vi använder Semantic Versioning (SemVer) för att versionshantera vår mjukvara. SemVer följer formattet: `MAJOR.MINOR.PATCH`.
 ![Semantic Versioning Cheatsheet](https://bytearcher.com/goodies/semantic-versioning-cheatsheet/wheelbarrel-no-tilde-caret-white-bg-w1000.jpg)
 
-**HUVUD:** Öka när du gör inkompatibla API-ändringar eller större ändringar som bryter bakåtkompatibilitet.
-**MINDRE:** Öka när du lägger till funktionalitet på ett bakåtkompatibelt sätt (t.ex., nya funktioner).
+**MAJOR:** Öka när du gör inkompatibla API-ändringar eller större ändringar som bryter bakåtkompatibilitet.
+**MINOR:** Öka när du lägger till funktionalitet på ett bakåtkompatibelt sätt (t.ex., nya funktioner).
 **PATCH:** Öka när du gör bakåtkompatibla buggfixar eller små förbättringar.
 
 ### Markera versioner i Git
 
-Följande steg är inte längre nödvändiga eftersom vi använder **Release Please** med GitHub Actions för att skapa versionsnummer och skapa en release.
+Följande steg är inte längre nödvändiga och kan bortses, eftersom vi använder **Release Please** med GitHub Actions för att skapa versionsnummer och skapa en release.
 
 > ~~När vi släpper en ny version, skapa en annoterad tagg i Git med versionsnumret. Så här gör vi det:
 
