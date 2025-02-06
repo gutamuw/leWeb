@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.2.0](https://github.com/gutamuw/leWeb/compare/v3.1.1...v3.2.0) (2025-02-06)
+
+
+### Features
+
+* **about.html:** add basic structure and styling for about page ([c21e6f3](https://github.com/gutamuw/leWeb/commit/c21e6f36180a8dad9497e39caf9a59108384374a))
+* add about.html ([19af058](https://github.com/gutamuw/leWeb/commit/19af058458f08880d0f30d5a85c2fa387c6e86d7))
+* **header:** add confetti button feature ([991e6fb](https://github.com/gutamuw/leWeb/commit/991e6fb744472f1c4a8dbcf36914257154bfb17d))
+* **slider:** implemented SlickJS ([f1f1c0c](https://github.com/gutamuw/leWeb/commit/f1f1c0c8b2a673597fb8b28017fbcba94b434604))
+
+
+### Bug Fixes
+
+* **header:** add safari support for backdrop-filter:blur ([9b9a752](https://github.com/gutamuw/leWeb/commit/9b9a752d33f05f81097209cd2779c6809edfe9a8))
+
 ## [3.1.1](https://github.com/gutamuw/leWeb/compare/v3.1.0...v3.1.1) (2025-02-05)
 
 
