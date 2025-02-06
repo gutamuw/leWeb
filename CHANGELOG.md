@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/gutamuw/leWeb/compare/v3.2.0...v3.2.1) (2025-02-06)
+
+
+### Bug Fixes
+
+* **hero:** remove h2 completely ([631de34](https://github.com/gutamuw/leWeb/commit/631de348bb83ec55a6b68a25f516839ff7cdb13a))
+
 ## [3.2.0](https://github.com/gutamuw/leWeb/compare/v3.1.1...v3.2.0) (2025-02-06)
 
 
